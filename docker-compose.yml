@@ -1,0 +1,6 @@
+services:
+  gettex-exchange:
+    container_name: gettex-exchange
+    image: gettex-exchange:${DOCKER_IMAGE_TAG:-latest}
+    build:
+      context: .

@@ -1,0 +1,6 @@
+services:
+  gettex-exchange-test:
+    container_name: gettex-exchange-test
+    build:
+      context: .
+      target: test

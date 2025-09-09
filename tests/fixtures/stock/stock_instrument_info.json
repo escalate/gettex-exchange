@@ -1,0 +1,68 @@
+{
+  "request": {
+    "rics": ["TSLA.GTX"],
+    "fids": [
+      "x._TICKER",
+      "x._DSPLY_NAME",
+      "q._TRDPRC_1",
+      "q._NETCHNG_1",
+      "q._PCTCHNG",
+      "q._COUNTRY",
+      "q._TRADE_DATE",
+      "q._TRDTIM_1",
+      "x._LOCAL_ID",
+      "q._OPEN_PRC",
+      "q._HIGH_1",
+      "q._LOW_1",
+      "q._TURNOVER",
+      "rkd.COMP_TAXONOMY_TRBC_CD_L1"
+    ],
+    "currency": "USD",
+    "country": "US",
+    "classSchemeId": "1006052",
+    "feeliable": true,
+    "appcodes": ["TRS"]
+  },
+  "data": [
+    {
+      "rkd.COMP_TAXONOMY_TRBC_CD_L1": "53",
+      "q._OPEN_PRC": "+275.75",
+      "q._NETCHNG_1": "+14.55",
+      "x._LOCAL_ID": "A1CX3T",
+      "x._TICKER": "TL0",
+      "q._HIGH_1": "+290.4",
+      "q._TRDPRC_1": "+289.95",
+      "q._TURNOVER": "+9747130.85",
+      "q._PCTCHNG": "+5.283",
+      "q._LOW_1": "+274.4",
+      "q._TRDTIM_1": "20:57",
+      "x._DSPLY_NAME": "TESLA MOTORS",
+      "q._TRADE_DATE": "22 AUG 2025",
+      "q._COUNTRY": "DE"
+    }
+  ],
+  "status": "OK",
+  "metadata": {
+    "x._TICKER": { "type": "string" },
+    "x._DSPLY_NAME": { "type": "string" },
+    "q._TRDPRC_1": { "type": "float.price", "streaming": "_TRDPRC_1" },
+    "q._NETCHNG_1": { "type": "float.price.change", "streaming": "_NETCHNG_1" },
+    "q._PCTCHNG": {
+      "type": "float.percentage.change",
+      "streaming": "_PCTCHNG"
+    },
+    "q._COUNTRY": { "type": "string.country", "streaming": "_COUNTRY" },
+    "q._TRADE_DATE": {
+      "format": "date.tr",
+      "type": "date",
+      "streaming": "_TRADE_DATE"
+    },
+    "q._TRDTIM_1": { "type": "time", "streaming": "_TRDTIM_1" },
+    "x._LOCAL_ID": { "type": "string" },
+    "q._OPEN_PRC": { "type": "float.price", "streaming": "_OPEN_PRC" },
+    "q._HIGH_1": { "type": "float.price", "streaming": "_HIGH_1" },
+    "q._LOW_1": { "type": "float.price", "streaming": "_LOW_1" },
+    "q._TURNOVER": { "type": "float.price", "streaming": "_TURNOVER" },
+    "rkd.COMP_TAXONOMY_TRBC_CD_L1": { "type": "string.sector" }
+  }
+}

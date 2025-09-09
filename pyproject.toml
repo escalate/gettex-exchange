@@ -1,0 +1,46 @@
+[project]
+name = "gettex_exchange"
+version = "0.1.0"
+description = "A Python client library for Gettex exchange"
+authors = [
+    { name = "Felix Börner" }
+]
+license = { text = "MIT" }
+readme = "README.md"
+requires-python = ">=3.13, <4.0"
+dynamic = ["dependencies"]
+
+[project.urls]
+Homepage = "https://github.com/escalate/gettex-exchange"
+Issues = "https://github.com/escalate/gettex-exchange/issues"
+
+[tool.poetry.dependencies]
+loguru = "^0.7.0"
+requests = "^2.32.0"
+beautifulsoup4 = "^4.13.3"
+pyjwt = "^2.10.1"
+requests-cache = "^1.2.1"
+requests-ratelimiter = "^0.7.0"
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^8.3.0"
+pytest-cov = "^6.0.0"
+pytest-loguru = "^0.4.0"
+responses = "^0.25.0"
+
+[tool.black]
+preview = true
+
+[tool.isort]
+profile = "black"
+
+[tool.pytest.ini_options]
+pythonpath = "src"
+addopts = [
+    "--cov=src/",
+    "--import-mode=importlib",
+]
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"

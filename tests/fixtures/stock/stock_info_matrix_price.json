@@ -1,0 +1,18 @@
+{
+  "request": {
+    "rics": ["TSLA.GTX"],
+    "fids": ["q._BID", "q._ASK", "x.RIC"],
+    "currency": "USD",
+    "country": "US",
+    "classSchemeId": "1006052",
+    "feeliable": true,
+    "appcodes": ["TRS"]
+  },
+  "data": [{ "q._BID": "+290.1", "x.RIC": "TSLA.GTX", "q._ASK": "+290.25" }],
+  "status": "OK",
+  "metadata": {
+    "q._BID": { "type": "float.price", "streaming": "_BID" },
+    "q._ASK": { "type": "float.price", "streaming": "_ASK" },
+    "x.RIC": { "type": "string" }
+  }
+}

@@ -1,0 +1,12 @@
+services:
+  gettex-exchange-dev:
+    container_name: gettex-exchange-dev
+    build:
+      context: .
+      target: base
+    working_dir: /app
+    command: /bin/sh -c "while sleep 1000; do :; done"
+    volumes:
+      - type: bind
+        source: ./
+        target: /app

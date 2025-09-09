@@ -1,0 +1,21 @@
+{
+  "request": {
+    "fids": ["x.RIC"],
+    "search": ["US88160R1014"],
+    "searchFor": "ISIN",
+    "exchanges": ["GTX"],
+    "secTypes": [],
+    "isNF": false,
+    "appcodes": ["TRS"],
+    "sortFids": [],
+    "sortTypes": [],
+    "sortDirs": [],
+    "pageSize": 1000,
+    "pageNo": 0,
+    "fetchTotalCount": false
+  },
+  "data": [{ "x.RIC": "TSLA.GTX" }],
+  "status": "OK",
+  "metadata": { "x.RIC": { "type": "string" } },
+  "totalCount": 1
+}
