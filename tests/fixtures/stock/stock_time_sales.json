@@ -1,0 +1,13 @@
+{
+  "request": {
+    "ric": "TSLA.GTX",
+    "fids": ["0", "6", "178"],
+    "fromDate": "1755914400000",
+    "toDate": "1755970227000",
+    "filter": "TRADES_ONLY",
+    "count": 100
+  },
+  "data": [],
+  "status": "OK",
+  "metadata": {}
+}

@@ -1,0 +1,3 @@
+*.yml
+*.yaml
+tests/fixtures/api/gettex_homepage.html
