@@ -12,3 +12,5 @@ jobs:
     name: Release
     if: ${{ github.event.workflow_run.conclusion == 'success' }}
     uses: escalate/github-actions-workflows/.github/workflows/release-python-package.yml@master
+    secrets:
+      PYPI_TOKEN: ${{ secrets.PYPI_TOKEN }}
