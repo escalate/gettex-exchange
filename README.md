@@ -67,7 +67,7 @@ This project follows a [Code of Conduct](https://github.com/escalate/gettex-exch
 
 By participating, you agree to uphold this standard.
 
-# 🐛 Issues
+## 🐛 Issues
 
 Found a bug or want to request a feature?
 
