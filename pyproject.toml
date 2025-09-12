@@ -24,7 +24,7 @@ requests-ratelimiter = "^0.7.0"
 
 [tool.poetry.group.dev.dependencies]
 pytest = "^8.3.0"
-pytest-cov = "^6.0.0"
+pytest-cov = "^7.0.0"
 pytest-loguru = "^0.4.0"
 responses = "^0.25.0"
 
