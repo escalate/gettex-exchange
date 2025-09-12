@@ -18,9 +18,7 @@ class CachedLimiterSession(CacheMixin, LimiterMixin, requests.Session):
 
 
 class Api:
-    def __init__(
-        self, request_timeout: float = 10.0, cache_timeout: float = 2.0
-    ) -> None:
+    def __init__(self) -> None:
         """
         Initializes the Api class with URLs and sane defaults.
         """
@@ -31,19 +29,37 @@ class Api:
             "AppleWebKit/537.36 (KHTML, like Gecko) "
             "Chrome/58.0.3029.110 Safari/537.3"
         )
-        self._request_timeout: float = request_timeout
+        self._request_timeout: float = 10.0
         self._session_id: str = Optional[str]
         self._session_expires_at: datetime = datetime.now()
         self._token: str = Optional[str]
         self._token_expires_at: datetime = datetime.now()
-        self._cache_timeout: float = cache_timeout
+        self._cache_timeout: float = 2.0
         self._cache: CachedLimiterSession = CachedLimiterSession(
             cache_name="request_cache",
             backend=BaseCache(),
             stale_if_error=False,
-            # Limit non-cached requests to 5 requests per second
+            # Limit non-cached requests to 1 request per second
             per_second=1,
         )
+
+    def api_request_user_agent(self, request_user_agent: str) -> None:
+        """
+        Sets the User-Agent header for API requests.
+        """
+        self._request_user_agent = request_user_agent
+
+    def api_request_timeout(self, request_timeout: float) -> None:
+        """
+        Sets the timeout for API requests.
+        """
+        self._request_timeout = request_timeout
+
+    def api_cache_timeout(self, cache_timeout: float) -> None:
+        """
+        Sets the cache timeout for API requests.
+        """
+        self._cache_timeout = cache_timeout
 
     def _get_saml_request(self) -> bytes:
         """
