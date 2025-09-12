@@ -1,6 +1,6 @@
 [project]
-name = "gettex_exchange"
-version = "0.1.0"
+name = "gettex-exchange"
+version = "0.1.1"
 description = "A Python client library for Gettex exchange"
 authors = [
     { name = "Felix Börner" }
