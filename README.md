@@ -18,7 +18,7 @@ Please review the official [legal notices](https://www.gettex.de/en/legal-notice
 
 ## 📦 Installation
 
-You can install `gettex-exchange` using [pip](https://pypi.org/project/pip/):
+You can install [gettex-exchange](https://pypi.org/project/gettex-exchange/) using [pip](https://pypi.org/project/pip/):
 
 ```bash
 pip install gettex-exchange
