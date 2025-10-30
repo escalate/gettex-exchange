@@ -1,1 +1,1 @@
-from .stock import Stock
+from .stock import Stock as Stock

@@ -5,9 +5,11 @@ description = "A Python client library for Gettex exchange"
 authors = [
     { name = "Felix Börner" }
 ]
-license = { text = "MIT" }
+license-files = [
+    "LICENSE"
+]
 readme = "README.md"
-requires-python = ">=3.13, <4.0"
+requires-python = ">=3.14, <4.0"
 dynamic = ["dependencies"]
 
 [project.urls]
@@ -17,13 +19,13 @@ Issues = "https://github.com/escalate/gettex-exchange/issues"
 [tool.poetry.dependencies]
 loguru = "^0.7.0"
 requests = "^2.32.0"
-beautifulsoup4 = "^4.13.3"
+beautifulsoup4 = "^4.14.2"
 pyjwt = "^2.10.1"
 requests-cache = "^1.2.1"
 requests-ratelimiter = "^0.7.0"
 
 [tool.poetry.group.dev.dependencies]
-pytest = "^8.3.0"
+pytest = "^8.4.0"
 pytest-cov = "^7.0.0"
 pytest-loguru = "^0.4.0"
 responses = "^0.25.0"

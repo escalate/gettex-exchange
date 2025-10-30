@@ -59,7 +59,7 @@ print(s.taxonomy)
 
 We welcome contributions of all kinds 🎉.
 
-Please read our [CONTRIBUTING.md](https://github.com/escalate/gettex-exchange/blob/master/CONTRIBUTING.md) guide to learn how to get started, submit changes, and follow our contribution standards.
+Please read our [Contributing](https://github.com/escalate/gettex-exchange/blob/master/CONTRIBUTING.md) guide to learn how to get started, submit changes, and follow our contribution standards.
 
 ## 🌐 Code of Conduct
 
@@ -75,7 +75,7 @@ Open an issue here: [GitHub Issues](https://github.com/escalate/gettex-exchange/
 
 ## 🧪 Development
 
-Development is possible via an interactive Docker container in VSCode.
+Development is possible via an interactive Docker container in [VSCode](https://code.visualstudio.com/).
 
 1. Build and launch the [DevContainer](https://code.visualstudio.com/docs/devcontainers/containers) in VSCode.
 
