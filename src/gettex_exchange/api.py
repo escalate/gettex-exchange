@@ -61,6 +61,26 @@ class Api:
         """
         self._cache_timeout = cache_timeout
 
+    def _extract_saml_request_from_text(self, text: str) -> Optional[bytes]:
+        """
+        Extracts the SAML Request from text.
+
+        Returns:
+            Optional[bytes]: The SAML Request if found, else None.
+        """
+        patterns = [
+            r"(?:const|let|var)\s+samlRequest\s*=\s*`([\s\S]*?)`;",
+            r'(?:const|let|var)\s+samlRequest\s*=\s*"([\s\S]*?)";',
+            r"(?:const|let|var)\s+samlRequest\s*=\s*'([\s\S]*?)';",
+        ]
+
+        for pattern in patterns:
+            saml_request_search = re.search(pattern, text, re.MULTILINE)
+            if saml_request_search:
+                return saml_request_search.group(1).strip().encode("utf-8")
+
+        return None
+
     def _get_saml_request(self) -> bytes:
         """
         Fetches the SAML Request from the Gettex website.
@@ -81,19 +101,22 @@ class Api:
         if r.status_code != requests.codes.ok:
             raise requests.exceptions.HTTPError(r.status_code)
 
+        saml_request = self._extract_saml_request_from_text(r.text)
+
+        if saml_request:
+            logger.debug(f"SAML Request: {saml_request}")
+            return saml_request
+
         soup = BeautifulSoup(r.text, "html.parser")
-        widget_script = soup.find_all("script")[3]
-        saml_request_search = re.search(
-            r"const samlRequest=`([\S\s.]+)`;", widget_script.text
-        )
 
-        if not saml_request_search:
-            raise ValueError("No SAML Request found.")
+        for script in soup.find_all("script"):
+            saml_request = self._extract_saml_request_from_text(script.text)
 
-        saml_request = saml_request_search.group(1).encode("utf-8")
-        logger.debug(f"SAML Request: {saml_request}")
+            if saml_request:
+                logger.debug(f"SAML Request: {saml_request}")
+                return saml_request
 
-        return saml_request
+        raise ValueError("No SAML Request found.")
 
     def _create_session_and_token(self) -> None:
         """
