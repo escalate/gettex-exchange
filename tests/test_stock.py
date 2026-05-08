@@ -208,6 +208,7 @@ def test_stock(mocked_responses):
         day=22,
         hour=20,
         minute=57,
+        second=0,
         tzinfo=timezone.utc,
     )
     assert s.wkn == "A1CX3T"

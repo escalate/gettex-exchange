@@ -280,9 +280,15 @@ class Stock(Api):
         trade_date = data.get("q._TRADE_DATE")
         # 08:12
         trade_time = data.get("q._TRDTIM_1")
-        self._trade_date_time = datetime.strptime(
-            f"{trade_date} {trade_time}+0000", "%d %b %Y  %H:%M%z"
-        )
+
+        try:
+            self._trade_date_time = datetime.strptime(
+                f"{trade_date} {trade_time}+0000", "%d %b %Y %H:%M:%S%z"
+            )
+        except ValueError:
+            self._trade_date_time = datetime.strptime(
+                f"{trade_date} {trade_time}+0000", "%d %b %Y %H:%M%z"
+            )
         return self._trade_date_time
 
     @property
