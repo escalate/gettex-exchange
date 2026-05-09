@@ -8,7 +8,7 @@
     "feeliable": true,
     "appcodes": ["TRS"]
   },
-  "data": [{ "q._BID": "+290.1", "x.RIC": "TSLA.GTX", "q._ASK": "+290.25" }],
+  "data": [{ "q._BID": "+363.05", "x.RIC": "TSLA.GTX", "q._ASK": "+363.45" }],
   "status": "OK",
   "metadata": {
     "q._BID": { "type": "float.price", "streaming": "_BID" },

@@ -1,68 +1,179 @@
 {
   "request": {
-    "rics": ["TSLA.GTX"],
+    "rics": [
+      "TSLA.GTX"
+    ],
     "fids": [
       "x._TICKER",
       "x._DSPLY_NAME",
+      "x._LOCAL_ID",
+      "x._ISIN",
+      "x._CURRENCY",
       "q._TRDPRC_1",
       "q._NETCHNG_1",
       "q._PCTCHNG",
-      "q._COUNTRY",
-      "q._TRADE_DATE",
-      "q._TRDTIM_1",
-      "x._LOCAL_ID",
+      "q._BID",
+      "q._ASK",
+      "q._BIDSIZE",
+      "q._ASKSIZE",
+      "q._ACVOL_1",
+      "q._TURNOVER",
+      "q._VWAP",
+      "q._TRDVOL_1",
       "q._OPEN_PRC",
       "q._HIGH_1",
       "q._LOW_1",
-      "q._TURNOVER",
-      "rkd.COMP_TAXONOMY_TRBC_CD_L1"
+      "q._HST_CLOSE",
+      "q._COUNTRY",
+      "q._TRADE_DATE",
+      "q._TRDTIM_1",
+      "q._HSTCLSDATE",
+      "rkd.COMP_TAXONOMY_TRBC_CD_L1",
+      "rkd.COMP_TAXONOMY_TRBC_CD_L2",
+      "rkd.COMP_TAXONOMY_TRBC_CD_L3"
     ],
     "currency": "USD",
     "country": "US",
     "classSchemeId": "1006052",
     "feeliable": true,
-    "appcodes": ["TRS"]
+    "appcodes": [
+      "TRS"
+    ]
   },
   "data": [
     {
       "rkd.COMP_TAXONOMY_TRBC_CD_L1": "53",
-      "q._OPEN_PRC": "+275.75",
-      "q._NETCHNG_1": "+14.55",
+      "rkd.COMP_TAXONOMY_TRBC_CD_L2": "5310",
+      "q._OPEN_PRC": "+351.05",
+      "rkd.COMP_TAXONOMY_TRBC_CD_L3": "531010",
       "x._LOCAL_ID": "A1CX3T",
       "x._TICKER": "TL0",
-      "q._HIGH_1": "+290.4",
-      "q._TRDPRC_1": "+289.95",
-      "q._TURNOVER": "+9747130.85",
-      "q._PCTCHNG": "+5.283",
-      "q._LOW_1": "+274.4",
-      "q._TRDTIM_1": "20:57",
+      "x._CURRENCY": "EUR",
+      "q._TRDPRC_1": "+363.3",
+      "q._TURNOVER": "+5112392.25",
+      "q._ACVOL_1": "14201",
+      "q._VWAP": "+360.00227",
+      "q._TRDVOL_1": "+1",
+      "q._ASKSIZE": "+375",
+      "q._HST_CLOSE": "+350.2",
+      "q._NETCHNG_1": "+13.1",
+      "q._BIDSIZE": "+375",
+      "q._HIGH_1": "+366",
+      "q._HSTCLSDATE": "07 MAY 2026",
+      "q._PCTCHNG": "+3.741",
+      "q._LOW_1": "+350.55",
+      "q._TRDTIM_1": "20:56:10",
+      "q._BID": "+363.05",
       "x._DSPLY_NAME": "TESLA MOTORS",
-      "q._TRADE_DATE": "22 AUG 2025",
-      "q._COUNTRY": "DE"
+      "q._TRADE_DATE": "08 MAY 2026",
+      "q._COUNTRY": "DE",
+      "x._ISIN": "US88160R1014",
+      "q._ASK": "+363.45"
     }
   ],
   "status": "OK",
   "metadata": {
-    "x._TICKER": { "type": "string" },
-    "x._DSPLY_NAME": { "type": "string" },
-    "q._TRDPRC_1": { "type": "float.price", "streaming": "_TRDPRC_1" },
-    "q._NETCHNG_1": { "type": "float.price.change", "streaming": "_NETCHNG_1" },
+    "x._TICKER": {
+      "type": "string"
+    },
+    "x._DSPLY_NAME": {
+      "type": "string"
+    },
+    "x._LOCAL_ID": {
+      "type": "string"
+    },
+    "x._ISIN": {
+      "type": "string"
+    },
+    "x._CURRENCY": {
+      "type": "string.currency"
+    },
+    "q._TRDPRC_1": {
+      "type": "float.price",
+      "streaming": "_TRDPRC_1"
+    },
+    "q._NETCHNG_1": {
+      "type": "float.price.change",
+      "streaming": "_NETCHNG_1"
+    },
     "q._PCTCHNG": {
       "type": "float.percentage.change",
       "streaming": "_PCTCHNG"
     },
-    "q._COUNTRY": { "type": "string.country", "streaming": "_COUNTRY" },
+    "q._BID": {
+      "type": "float.price",
+      "streaming": "_BID"
+    },
+    "q._ASK": {
+      "type": "float.price",
+      "streaming": "_ASK"
+    },
+    "q._BIDSIZE": {
+      "type": "int",
+      "streaming": "_BIDSIZE"
+    },
+    "q._ASKSIZE": {
+      "type": "int",
+      "streaming": "_ASKSIZE"
+    },
+    "q._ACVOL_1": {
+      "type": "int",
+      "streaming": "_ACVOL_1"
+    },
+    "q._TURNOVER": {
+      "type": "float.price",
+      "streaming": "_TURNOVER"
+    },
+    "q._VWAP": {
+      "type": "float",
+      "streaming": "_VWAP"
+    },
+    "q._TRDVOL_1": {
+      "type": "int",
+      "streaming": "_TRDVOL_1"
+    },
+    "q._OPEN_PRC": {
+      "type": "float.price",
+      "streaming": "_OPEN_PRC"
+    },
+    "q._HIGH_1": {
+      "type": "float.price",
+      "streaming": "_HIGH_1"
+    },
+    "q._LOW_1": {
+      "type": "float.price",
+      "streaming": "_LOW_1"
+    },
+    "q._HST_CLOSE": {
+      "type": "float.price",
+      "streaming": "_HST_CLOSE"
+    },
+    "q._COUNTRY": {
+      "type": "string.country",
+      "streaming": "_COUNTRY"
+    },
     "q._TRADE_DATE": {
       "format": "date.tr",
       "type": "date",
       "streaming": "_TRADE_DATE"
     },
-    "q._TRDTIM_1": { "type": "time", "streaming": "_TRDTIM_1" },
-    "x._LOCAL_ID": { "type": "string" },
-    "q._OPEN_PRC": { "type": "float.price", "streaming": "_OPEN_PRC" },
-    "q._HIGH_1": { "type": "float.price", "streaming": "_HIGH_1" },
-    "q._LOW_1": { "type": "float.price", "streaming": "_LOW_1" },
-    "q._TURNOVER": { "type": "float.price", "streaming": "_TURNOVER" },
-    "rkd.COMP_TAXONOMY_TRBC_CD_L1": { "type": "string.sector" }
+    "q._TRDTIM_1": {
+      "type": "time",
+      "streaming": "_TRDTIM_1"
+    },
+    "q._HSTCLSDATE": {
+      "format": "date.tr",
+      "type": "date",
+      "streaming": "_HSTCLSDATE"
+    },
+    "rkd.COMP_TAXONOMY_TRBC_CD_L1": {
+      "type": "string"
+    },
+    "rkd.COMP_TAXONOMY_TRBC_CD_L2": {
+      "type": "string"
+    },
+    "rkd.COMP_TAXONOMY_TRBC_CD_L3": {
+      "type": "string"
+    }
   }
 }
