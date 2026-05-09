@@ -1,4 +1,4 @@
-from datetime import datetime
+from datetime import datetime, date
 
 import requests
 from loguru import logger
@@ -33,6 +33,15 @@ class Stock(Api):
         self._last_price: float = 0.0
         self._turnover: float = 0.0
         self._taxonomy: str = ""
+        self._taxonomy_level_2: str = ""
+        self._taxonomy_level_3: str = ""
+
+        self._currency: str = ""
+        self._accumulated_intraday_volume: int = 0
+        self._vwap: float = 0.0
+        self._last_trade_volume: int = 0
+        self._previous_close_price: float = 0.0
+        self._previous_close_date: date = date.today()
 
     def _get_quote_info(self, fields: list, component_id: str) -> dict:
         """
@@ -179,18 +188,31 @@ class Stock(Api):
         fields = [
             "x._TICKER",
             "x._DSPLY_NAME",
+            "x._LOCAL_ID",
+            "x._ISIN",
+            "x._CURRENCY",
             "q._TRDPRC_1",
             "q._NETCHNG_1",
             "q._PCTCHNG",
-            "q._COUNTRY",
-            "q._TRADE_DATE",
-            "q._TRDTIM_1",
-            "x._LOCAL_ID",
+            "q._BID",
+            "q._ASK",
+            "q._BIDSIZE",
+            "q._ASKSIZE",
+            "q._ACVOL_1",
+            "q._TURNOVER",
+            "q._VWAP",
+            "q._TRDVOL_1",
             "q._OPEN_PRC",
             "q._HIGH_1",
             "q._LOW_1",
-            "q._TURNOVER",
+            "q._HST_CLOSE",
+            "q._COUNTRY",
+            "q._TRADE_DATE",
+            "q._TRDTIM_1",
+            "q._HSTCLSDATE",
             "rkd.COMP_TAXONOMY_TRBC_CD_L1",
+            "rkd.COMP_TAXONOMY_TRBC_CD_L2",
+            "rkd.COMP_TAXONOMY_TRBC_CD_L3"
         ]
 
         return self._get_quote_info(fields, component_id)
@@ -358,3 +380,103 @@ class Stock(Api):
             data.get("rkd.COMP_TAXONOMY_TRBC_CD_L1")
         )
         return self._taxonomy
+
+    @property
+    def currency(self) -> str:
+        """
+        Fetches the currency for a stock.
+
+        Returns:
+            str: The currency.
+        """
+        data = self._get_quote_info_instrument_info()
+        self._currency = data.get("x._CURRENCY")
+        return self._currency
+
+    @property
+    def accumulated_intraday_volume(self) -> int:
+        """
+        Fetches the accumulated intraday volume for a stock.
+
+        Returns:
+            str: The accumulated intraday volume.
+        """
+        data = self._get_quote_info_instrument_info()
+        self._accumulated_intraday_volume = data.get("q._ACVOL_1")
+        return self._accumulated_intraday_volume
+
+    @property
+    def vwap(self) -> float:
+        """
+        Fetches the VWAP (Volume Weighted Average Price) for a stock.
+
+        Returns:
+            str: The VWAP (Volume Weighted Average Price).
+        """
+        data = self._get_quote_info_instrument_info()
+        self._vwap = data.get("q._VWAP")
+        return self._vwap
+
+    @property
+    def last_trade_volume(self) -> int:
+        """
+        Fetches the trade volume from the last trade for a stock.
+
+        Returns:
+            str: The trade volume from the last trade.
+        """
+        data = self._get_quote_info_instrument_info()
+        self._last_trade_volume = data.get("q._TRDVOL_1")
+        return self._last_trade_volume
+
+    @property
+    def previous_close_price(self) -> float:
+        """
+        Fetches the historical close price for a stock.
+
+        Returns:
+            str: The historical close price.
+        """
+        data = self._get_quote_info_instrument_info()
+        self._previous_close_price = data.get("q._HST_CLOSE")
+        return self._previous_close_price
+
+    @property
+    def previous_close_date(self) -> date:
+        """
+        Fetches the historical close price for a stock.
+
+        Returns:
+            str: The historical close price.
+        """
+        data = self._get_quote_info_instrument_info()
+        previous_close_date = data.get("q._HSTCLSDATE")
+        self._previous_close_date = datetime.strptime(
+            previous_close_date, "%d %b %Y"
+        ).date()
+        return self._previous_close_date
+
+    @property
+    def taxonomy_level_2(self) -> str:
+        """
+        Fetches the TRBC business sector code for a stock.
+
+        Returns:
+            str: The TRBC business sector code.
+        """
+        data = self._get_quote_info_instrument_info()
+        self._taxonomy_level_2 = data.get("rkd.COMP_TAXONOMY_TRBC_CD_L2")
+        return self._taxonomy_level_2
+
+    @property
+    def taxonomy_level_3(self) -> str:
+        """
+        Fetches the TRBC industry group code for a stock.
+
+        Returns:
+            str: The TRBC industry group code.
+        """
+        data = self._get_quote_info_instrument_info()
+        self._taxonomy_level_3 = data.get("rkd.COMP_TAXONOMY_TRBC_CD_L3")
+        return self._taxonomy_level_3
+
