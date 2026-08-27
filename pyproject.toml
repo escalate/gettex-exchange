@@ -28,7 +28,7 @@ requests-ratelimiter = "^0.7.0"
 pytest = "^9.0.0"
 pytest-cov = "^7.0.0"
 pytest-loguru = "^0.4.0"
-responses = "^0.25.0"
+responses = "^0.26.0"
 
 [tool.black]
 preview = true
