@@ -22,7 +22,7 @@ requests = "^2.32.0"
 beautifulsoup4 = "^4.14.2"
 pyjwt = "^2.10.1"
 requests-cache = "^1.2.1"
-requests-ratelimiter = "^0.7.0"
+requests-ratelimiter = "^0.10.0"
 
 [tool.poetry.group.dev.dependencies]
 pytest = "^9.0.0"
